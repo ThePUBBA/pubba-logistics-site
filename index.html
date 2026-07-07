@@ -61,6 +61,8 @@
     img {
       display: block;
       max-width: 100%;
+      border-radius: 12px;
+      image-rendering: auto;
     }
 
     .container {
@@ -342,6 +344,16 @@
       height: auto;
       display: block;
       object-fit: contain;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+      transform: translateY(0);
+      transition: transform 250ms ease, box-shadow 250ms ease;
+      will-change: transform;
+    }
+
+    .hero__van-img:hover,
+    .service-area__image img:hover {
+      box-shadow: 0 14px 32px rgba(0, 0, 0, .18);
+      transform: translateY(-4px);
     }
 
     .services-grid {
@@ -847,6 +859,10 @@
             alt="Pubba Logistics Sprinter Van and Box Truck"
             class="hero__van-img"
             loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="854"
+            height="640"
           />
         </div>
       </div>
@@ -1091,7 +1107,14 @@
       <p class="section-subtitle">Based in Colorado. Running regional lanes.</p>
 
       <div class="service-area__image">
-        <img src="van_truck_mountains.png" alt="Pubba Logistics van and truck driving in mountains" />
+        <img
+          src="van_truck_mountains.png"
+          alt="Pubba Logistics van and truck driving in mountains"
+          loading="lazy"
+          decoding="async"
+          width="1024"
+          height="1024"
+        />
       </div>
 
       <div class="area-badge">
