@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PUBBA LOGISTICS | Sprinter Van & Box Truck Freight — Denver Metro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PUBBA LOGISTICS | Sprinter Van &amp; Box Truck Freight — Denver Metro</title>
   <link rel="icon" type="image/png" href="/favicon.png">
-  <meta name="description" content="PUBBA LOGISTICS: Sprinter Van & Box Truck delivery for urgent B2B freight. Fast, reliable service. Serving Denver Metro & regional lanes." />
-</head>
-<body>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <meta name="description" content="PUBBA LOGISTICS: Sprinter Van & Box Truck freight. Fast B2B delivery for businesses that can't wait. Denver Metro & beyond." />
+  <meta name="description" content="PUBBA LOGISTICS: Sprinter Van &amp; Box Truck delivery for urgent B2B freight. Fast, reliable service. Serving Denver Metro &amp; regional lanes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preload"
+    as="image"
+    href="assets/images/pubba-hero-fleet-768.webp"
+    type="image/webp"
+    imagesrcset="assets/images/pubba-hero-fleet-480.webp 480w, assets/images/pubba-hero-fleet-768.webp 768w, assets/images/pubba-hero-fleet-854.webp 854w"
+    imagesizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1023px) 720px, 50vw"
+  >
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "PUBBA LOGISTICS",
+      "url": "https://www.pubbalogistics.com/",
+      "image": "https://www.pubbalogistics.com/assets/images/pubba-hero-fleet-854.webp",
+      "telephone": "+13039002247",
+      "email": "dispatch@pubbalogistics.com",
+      "areaServed": ["Colorado", "Wyoming", "Utah", "New Mexico", "Kansas", "Nebraska"],
+      "serviceType": [
+        "Sprinter Van Freight",
+        "Box Truck Freight",
+        "Expedited Freight",
+        "Same-Day Delivery",
+        "Last-Mile Commercial Delivery"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/pubbalogistics/",
+        "https://www.facebook.com/profile.php?id=61577648836823",
+        "https://www.linkedin.com/company/pubba-logistics/"
+      ]
+    }
+  </script>
 
   <style>
     *, *::before, *::after {
@@ -106,6 +134,20 @@
       font-size: 18px;
       color: var(--gray-light);
       line-height: 1.7;
+    }
+
+    .u-hidden {
+      display: none;
+    }
+
+    .broker-dispatch-note {
+      margin-top: 28px;
+      font-size: 16px;
+      color: var(--gray-light);
+    }
+
+    .broker-dispatch-note strong {
+      color: var(--white);
     }
 
     .btn {
@@ -676,7 +718,7 @@
 
     .footer__text {
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.34);
+      color: var(--gray-light);
     }
 
     @media (max-width: 1200px) {
@@ -704,6 +746,42 @@
     }
 
 @media (max-width: 768px) {
+      .contact-bar {
+        padding: 0 18px;
+      }
+
+      .mobile-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .contact-bar__actions {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 18px;
+        display: grid;
+        width: min(260px, calc(100vw - 36px));
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.96);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .contact-bar__actions.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .contact-bar__btn {
+        justify-content: center;
+      }
 
       .hero {
         min-height: auto;
@@ -781,19 +859,21 @@
 </head>
 <body>
   <header class="contact-bar">
-    <a href="#" class="contact-bar__logo">PUBBA <span>
+    <a href="#" class="contact-bar__logo" aria-label="PUBBA Logistics home">PUBBA <span>LOGISTICS</span></a>
 
     <button
       class="mobile-toggle"
-      onclick="document.querySelector('.contact-bar__actions').classList.toggle('active')"
+      type="button"
       aria-label="Toggle menu"
+      aria-controls="primary-actions"
+      aria-expanded="false"
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
 
-    <nav class="contact-bar__actions">
+    <nav class="contact-bar__actions" id="primary-actions" aria-label="Primary contact actions">
       <a href="tel:+13039002247" class="contact-bar__btn contact-bar__btn--mint">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
@@ -817,12 +897,13 @@
     </nav>
   </header>
 
+  <main>
   <section class="hero">
     <div class="container">
       <div class="hero__text">
-        <h1 class="hero__headline">FAST FREIGHT.<br />NO DELAYS.</h1>
+        <h1 class="hero__headline">FAST FREIGHT.<br>NO DELAYS.</h1>
         <p class="hero__subheadline">
-          Sprinter Van & Box Truck freight for businesses that can’t wait.
+          Sprinter Van &amp; Box Truck freight for businesses that can’t wait.
         </p>
         <p class="hero__supporting">
           Serving Denver Metro <span>•</span> B2B Freight <span>•</span> Contract Work Available
@@ -831,23 +912,34 @@
         <div class="hero__trust">
           <div class="hero__trust-item"><span class="hero__trust-dot"></span> Dispatch Available Now</div>
           <div class="hero__trust-item"><span class="hero__trust-dot"></span> Response in Minutes</div>
-          <div class="hero__trust-item"><span class="hero__trust-dot"></span> Van & Truck Ready</div>
+          <div class="hero__trust-item"><span class="hero__trust-dot"></span> Van &amp; Truck Ready</div>
         </div>
 
         <div class="hero__cta btn-group">
-          <a href="tel:+13039002247" class="btn btn--mint">CALL DISPATCH — 303-900-2247</a>
+          <a href="tel:+13039002247" class="btn btn--mint">CALL&nbsp;DISPATCH&nbsp;—&nbsp;303&#8209;900&#8209;2247</a>
           <a href="#quote" class="btn btn--outline">Request a Quote</a>
         </div>
       </div>
 
       <div class="hero__visual">
         <div class="hero__van-wrap">
-          <img
-            src="truck_and_van_website.jpeg"
-            alt="Pubba Logistics Sprinter Van and Box Truck"
-            class="hero__van-img"
-            loading="eager"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcset="assets/images/pubba-hero-fleet-480.webp 480w, assets/images/pubba-hero-fleet-768.webp 768w, assets/images/pubba-hero-fleet-854.webp 854w"
+              sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1023px) 720px, 50vw"
+            >
+            <img
+              src="truck_and_van_website.jpeg"
+              alt="Pubba Logistics Sprinter Van and Box Truck"
+              class="hero__van-img"
+              width="854"
+              height="640"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            >
+          </picture>
         </div>
       </div>
     </div>
@@ -1008,7 +1100,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
           </svg>
-          Call Dispatch Now
+          Call&nbsp;Dispatch&nbsp;Now
         </a>
 
         <a href="sms:+13039002247" class="btn btn--outline">
@@ -1030,8 +1122,8 @@
         <h2 class="section-title">FOR BROKERS &amp; SHIPPERS</h2>
         <p class="section-subtitle">We handle last-minute loads so you do not lose them.</p>
 
-        <p style="margin-top: 28px; font-size: 16px; color: var(--gray-light);">
-          <strong style="color: var(--white);">Call or text dispatch for fastest response.</strong>
+        <p class="broker-dispatch-note">
+          <strong>Call or text dispatch for fastest response.</strong>
         </p>
       </div>
 
@@ -1091,7 +1183,21 @@
       <p class="section-subtitle">Based in Colorado. Running regional lanes.</p>
 
       <div class="service-area__image">
-        <img src="van_truck_mountains.png" alt="Pubba Logistics van and truck driving in mountains" />
+        <picture>
+          <source
+            type="image/webp"
+            srcset="assets/images/pubba-service-area-480.webp 480w, assets/images/pubba-service-area-768.webp 768w, assets/images/pubba-service-area-1024.webp 1024w"
+            sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1023px) 720px, 780px"
+          >
+          <img
+            src="van_truck_mountains.png"
+            alt="Pubba Logistics van and truck driving in mountains"
+            width="1024"
+            height="1024"
+            loading="lazy"
+            decoding="async"
+          >
+        </picture>
       </div>
 
       <div class="area-badge">
@@ -1147,45 +1253,45 @@
           data-netlify="true"
           netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="form-name" value="quote" />
-          <p style="display:none;">
-            <label>Do not fill this out: <input name="bot-field" /></label>
+          <input type="hidden" name="form-name" value="quote">
+          <p class="u-hidden">
+            <label>Do not fill this out: <input type="text" name="bot-field"></label>
           </p>
 
           <div class="form-grid">
             <div class="form-group">
               <label class="form-label" for="name">Name *</label>
-              <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required />
+              <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="company">Company Name</label>
-              <input class="form-input" type="text" id="company" name="company" placeholder="Company (optional)" />
+              <input class="form-input" type="text" id="company" name="company" placeholder="Company (optional)">
             </div>
 
             <div class="form-group">
               <label class="form-label" for="phone">Phone Number *</label>
-              <input class="form-input" type="tel" id="phone" name="phone" placeholder="(000) 000-0000" required />
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="(000) 000-0000" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="email">Email *</label>
-              <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required />
+              <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="pickup">Pickup Location *</label>
-              <input class="form-input" type="text" id="pickup" name="pickup" placeholder="City, State or Address" required />
+              <input class="form-input" type="text" id="pickup" name="pickup" placeholder="City, State or Address" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="dropoff">Dropoff Location *</label>
-              <input class="form-input" type="text" id="dropoff" name="dropoff" placeholder="City, State or Address" required />
+              <input class="form-input" type="text" id="dropoff" name="dropoff" placeholder="City, State or Address" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="datetime">Pickup Date / Time *</label>
-              <input class="form-input" type="datetime-local" id="datetime" name="datetime" required />
+              <input class="form-input" type="datetime-local" id="datetime" name="datetime" required>
             </div>
 
             <div class="form-group">
@@ -1225,7 +1331,7 @@
 
   <section class="final-cta">
     <div class="container">
-      <h2 class="final-cta__headline">NEED A DRIVER<br />NOW?</h2>
+        <h2 class="final-cta__headline">NEED A DRIVER<br>NOW?</h2>
       <p class="final-cta__sub">We are ready. Contact dispatch and get moving.</p>
 
       <div class="btn-group">
@@ -1233,7 +1339,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
           </svg>
-          Call Dispatch
+          Call&nbsp;Dispatch
         </a>
 
         <a href="sms:+13039002247" class="btn btn--outline">
@@ -1254,6 +1360,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <footer class="footer">
     <div class="container">
@@ -1273,9 +1380,18 @@
   </footer>
 
   <script>
+    var mobileToggle = document.querySelector(".mobile-toggle");
+    var primaryActions = document.querySelector(".contact-bar__actions");
+
+    mobileToggle.addEventListener("click", function () {
+      var isOpen = primaryActions.classList.toggle("active");
+      mobileToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
     document.querySelectorAll(".contact-bar__actions a").forEach(function (link) {
       link.addEventListener("click", function () {
-        document.querySelector(".contact-bar__actions").classList.remove("active");
+        primaryActions.classList.remove("active");
+        mobileToggle.setAttribute("aria-expanded", "false");
       });
     });
 
