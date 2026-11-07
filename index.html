@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PUBBA LOGISTICS | Sprinter Van &amp; Box Truck Freight — Denver Metro</title>
+  <title>PUBBA LOGISTICS | Cargo Van, Box Truck &amp; Tractor-Trailer Freight</title>
   <link rel="icon" type="image/png" href="/favicon.png">
-  <meta name="description" content="PUBBA LOGISTICS: Sprinter Van &amp; Box Truck delivery for urgent B2B freight. Fast, reliable service. Serving Denver Metro &amp; regional lanes.">
+  <meta name="description" content="PUBBA Logistics provides professional cargo van, 26FT box truck, and tractor-trailer transportation for expedited, local, regional, dedicated, and commercial freight.">
+  <meta property="og:title" content="PUBBA LOGISTICS | Cargo Van, Box Truck &amp; Tractor-Trailer Freight">
+  <meta property="og:description" content="Professional cargo van, 26FT box truck, and tractor-trailer transportation for expedited, regional, dedicated, and commercial freight.">
+  <meta property="og:image" content="https://www.pubbalogistics.com/assets/images/pubba-homepage-fleet-v4-1536.webp">
+  <meta property="og:url" content="https://www.pubbalogistics.com/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     rel="preload"
     as="image"
-    href="assets/images/pubba-hero-fleet-768.webp"
+    href="assets/images/pubba-homepage-fleet-v4-1024.webp"
     type="image/webp"
-    imagesrcset="assets/images/pubba-hero-fleet-480.webp 480w, assets/images/pubba-hero-fleet-768.webp 768w, assets/images/pubba-hero-fleet-854.webp 854w"
+    imagesrcset="assets/images/pubba-homepage-fleet-v4-640.webp 640w, assets/images/pubba-homepage-fleet-v4-1024.webp 1024w, assets/images/pubba-homepage-fleet-v4-1536.webp 1536w"
     imagesizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1023px) 720px, 50vw"
   >
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,16 +29,18 @@
       "@type": "LocalBusiness",
       "name": "PUBBA LOGISTICS",
       "url": "https://www.pubbalogistics.com/",
-      "image": "https://www.pubbalogistics.com/assets/images/pubba-hero-fleet-854.webp",
+      "image": "https://www.pubbalogistics.com/assets/images/pubba-homepage-fleet-v4-1536.webp",
       "telephone": "+13039002247",
       "email": "dispatch@pubbalogistics.com",
       "areaServed": ["Colorado", "Wyoming", "Utah", "New Mexico", "Kansas", "Nebraska"],
       "serviceType": [
-        "Sprinter Van Freight",
-        "Box Truck Freight",
+        "Cargo Van Freight",
+        "26FT Box Truck Freight",
+        "Tractor-Trailer Freight",
+        "Full Truckload Freight",
         "Expedited Freight",
         "Same-Day Delivery",
-        "Last-Mile Commercial Delivery"
+        "Commercial Freight"
       ],
       "sameAs": [
         "https://www.instagram.com/pubbalogistics/",
@@ -378,22 +386,13 @@
       width: 100%;
     }
 
-    .hero__van-wrap,
-    .hero__van-wrap picture,
-    .service-area__image,
-    .service-area__image picture {
-      display: block;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
     .hero__van-img,
     .service-area__image img {
       width: 100%;
       height: auto;
       display: block;
       object-fit: contain;
-      border-radius: 8px;
+      border-radius: 16px;
     }
 
     .services-grid {
@@ -406,6 +405,13 @@
       overflow: hidden;
       background: var(--border);
     }
+
+    .equipment-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 48px; }
+    .equipment-card { padding: 38px 32px; border: 1px solid rgba(68, 255, 187, 0.2); border-radius: 14px; background: linear-gradient(145deg, rgba(68, 255, 187, 0.08), rgba(255, 255, 255, 0.02)); }
+    .equipment-card__number { color: var(--mint); font: 400 20px/1 "Bebas Neue", sans-serif; letter-spacing: 0.1em; }
+    .equipment-card__title { margin: 18px 0 14px; font-size: 36px; }
+    .equipment-card__desc { min-height: 100px; color: var(--gray-light); font-size: 15px; }
+    .equipment-card__uses { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--white); font-size: 13px; font-weight: 600; line-height: 1.8; }
 
     .service-card {
       background: var(--black);
@@ -674,6 +680,21 @@
       font-size: 16px;
     }
 
+    .form-submit .btn:disabled {
+      cursor: wait;
+      opacity: 0.72;
+      transform: none;
+    }
+
+    .form-status {
+      min-height: 24px;
+      margin-top: 14px;
+      color: #ffb4b4;
+      font-size: 14px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
     .final-cta {
       text-align: center;
       padding: 120px 0;
@@ -731,10 +752,18 @@
       color: var(--gray-light);
     }
 
+    .footer__equipment { margin-bottom: 5px; font-family: "Bebas Neue", sans-serif; font-size: 21px; letter-spacing: 0.06em; }
+    .footer__standard { margin-bottom: 20px; color: var(--mint); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; }
+
     @media (max-width: 1200px) {
       .services-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+    }
+
+    @media (max-width: 900px) {
+      .equipment-grid { grid-template-columns: 1fr; }
+      .equipment-card__desc { min-height: 0; }
     }
 
     @media (max-width: 1023px) {
@@ -913,7 +942,7 @@
       <div class="hero__text">
         <h1 class="hero__headline">FAST FREIGHT.<br>NO DELAYS.</h1>
         <p class="hero__subheadline">
-          Sprinter Van &amp; Box Truck freight for businesses that can’t wait.
+          Cargo Van, 26FT Box Truck &amp; Tractor-Trailer freight for businesses that can’t wait.
         </p>
         <p class="hero__supporting">
           Serving Denver Metro <span>•</span> B2B Freight <span>•</span> Contract Work Available
@@ -922,7 +951,7 @@
         <div class="hero__trust">
           <div class="hero__trust-item"><span class="hero__trust-dot"></span> Dispatch Available Now</div>
           <div class="hero__trust-item"><span class="hero__trust-dot"></span> Response in Minutes</div>
-          <div class="hero__trust-item"><span class="hero__trust-dot"></span> Van &amp; Truck Ready</div>
+          <div class="hero__trust-item"><span class="hero__trust-dot"></span> Multi-Equipment Capacity</div>
         </div>
 
         <div class="hero__cta btn-group">
@@ -936,15 +965,15 @@
           <picture>
             <source
               type="image/webp"
-              srcset="assets/images/pubba-hero-fleet-480.webp 480w, assets/images/pubba-hero-fleet-768.webp 768w, assets/images/pubba-hero-fleet-854.webp 854w"
+              srcset="assets/images/pubba-homepage-fleet-v4-640.webp 640w, assets/images/pubba-homepage-fleet-v4-1024.webp 1024w, assets/images/pubba-homepage-fleet-v4-1536.webp 1536w"
               sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1023px) 720px, 50vw"
             >
             <img
-              src="truck_and_van_website.jpeg"
-              alt="Pubba Logistics Sprinter Van and Box Truck"
+              src="assets/images/pubba-homepage-fleet-v4.png"
+              alt="PUBBA Logistics cargo van, 26FT box truck, and tractor-trailer transportation fleet"
               class="hero__van-img"
-              width="854"
-              height="640"
+              width="1536"
+              height="1024"
               loading="eager"
               fetchpriority="high"
               decoding="async"
@@ -955,11 +984,24 @@
     </div>
   </section>
 
+  <section class="section section--border" id="equipment">
+    <div class="container">
+      <span class="section-label">Equipment &amp; Capacity</span>
+      <h2 class="section-title">RIGHT EQUIPMENT. RIGHT LOAD.</h2>
+      <p class="section-subtitle">From time-critical smaller shipments to full truckload freight, PUBBA Logistics matches the right equipment to the shipment.</p>
+      <div class="equipment-grid">
+        <article class="equipment-card"><span class="equipment-card__number">01</span><h3 class="equipment-card__title">CARGO VANS</h3><p class="equipment-card__desc">Fast, flexible capacity for expedited, time-critical, smaller palletized, parts, and commercial freight.</p><p class="equipment-card__uses">Expedited freight • Parts and supplies • Local delivery • Regional delivery</p></article>
+        <article class="equipment-card"><span class="equipment-card__number">02</span><h3 class="equipment-card__title">26FT BOX TRUCKS</h3><p class="equipment-card__desc">Versatile capacity for palletized freight, commercial deliveries, middle-mile transportation, dedicated routes, and larger shipments.</p><p class="equipment-card__uses">Palletized freight • Middle mile • Dedicated routes • Regional freight</p></article>
+        <article class="equipment-card"><span class="equipment-card__number">03</span><h3 class="equipment-card__title">TRACTOR-TRAILERS</h3><p class="equipment-card__desc">Full truckload capacity for larger commercial freight, regional transportation, dedicated lanes, and over-the-road opportunities.</p><p class="equipment-card__uses">Full Truckload • Dedicated lanes • Distribution freight • OTR transportation</p></article>
+      </div>
+    </div>
+  </section>
+
   <section class="section section--border" id="services">
     <div class="container">
       <span class="section-label">Services</span>
       <h2 class="section-title">WHAT WE HANDLE</h2>
-      <p class="section-subtitle">Built for time-critical freight. Direct delivery. No delays.</p>
+      <p class="section-subtitle">Expedited, scheduled, commercial, and full truckload transportation.</p>
 
       <div class="services-grid">
         <div class="service-card">
@@ -969,7 +1011,7 @@
             </svg>
           </div>
           <h3 class="service-card__title">Expedited Freight</h3>
-          <p class="service-card__desc">Direct delivery. No stops. No delays.</p>
+          <p class="service-card__desc">Fast transportation for urgent and time-sensitive shipments.</p>
         </div>
 
         <div class="service-card">
@@ -979,7 +1021,7 @@
             </svg>
           </div>
           <h3 class="service-card__title">Same-Day Delivery</h3>
-          <p class="service-card__desc">Pickup and delivery within hours.</p>
+          <p class="service-card__desc">Responsive local and regional transportation when timing matters.</p>
         </div>
 
         <div class="service-card">
@@ -989,8 +1031,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
           </div>
-          <h3 class="service-card__title">Last-Mile Commercial</h3>
-          <p class="service-card__desc">Commercial shipments handled professionally.</p>
+          <h3 class="service-card__title">Commercial Freight</h3>
+          <p class="service-card__desc">Professional transportation solutions for business-to-business freight.</p>
         </div>
 
         <div class="service-card">
@@ -1000,7 +1042,7 @@
             </svg>
           </div>
           <h3 class="service-card__title">Dedicated Routes</h3>
-          <p class="service-card__desc">Consistent runs for businesses and contractors.</p>
+          <p class="service-card__desc">Consistent transportation capacity for recurring lanes and scheduled freight.</p>
         </div>
 
         <div class="service-card">
@@ -1010,7 +1052,7 @@
             </svg>
           </div>
           <h3 class="service-card__title">Time-Critical Shipments</h3>
-          <p class="service-card__desc">When it absolutely has to get there. No excuses.</p>
+          <p class="service-card__desc">Responsive transportation when your freight cannot wait.</p>
         </div>
 
         <div class="service-card">
@@ -1019,8 +1061,20 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h13M3 12h18M3 17h10"/>
             </svg>
           </div>
-          <h3 class="service-card__title">Contract Work</h3>
-          <p class="service-card__desc">Built for recurring business, route coverage, and dependable support.</p>
+          <h3 class="service-card__title">Contract Transportation</h3>
+          <p class="service-card__desc">Reliable capacity for recurring business, route coverage, and long-term transportation needs.</p>
+        </div>
+        <div class="service-card"><div class="service-card__icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6h13v10H3zM16 10h3l2 3v3h-5zM7 19a2 2 0 100-4 2 2 0 000 4zm10 0a2 2 0 100-4 2 2 0 000 4z"/></svg></div><h3 class="service-card__title">Full Truckload</h3><p class="service-card__desc">Tractor-trailer capacity for larger commercial shipments and full truckload freight.</p></div>
+        <div class="service-card"><div class="service-card__icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 17l5-5 4 4 7-8M15 8h5v5"/></svg></div><h3 class="service-card__title">Regional &amp; OTR Transportation</h3><p class="service-card__desc">Flexible capacity for regional and longer-haul freight movements.</p></div>
+
+        <div class="service-card">
+          <div class="service-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h8M8 14h5m8-2a9 9 0 11-3.18-6.87L21 4v4h-4"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Shipment Updates</h3>
+          <p class="service-card__desc">Professional pickup, transit, delivery, and proof-of-delivery communication.</p>
         </div>
       </div>
     </div>
@@ -1068,8 +1122,8 @@
             </svg>
           </div>
           <div>
-            <div class="authority-item__text">Fleet ready to dispatch</div>
-            <div class="authority-item__sub">Right-sized vehicles for your load. Always maintained. Always ready.</div>
+            <div class="authority-item__text">Right equipment for the load</div>
+            <div class="authority-item__sub">Cargo vans, 26FT box trucks, and tractor-trailer capacity matched to shipment requirements.</div>
           </div>
         </div>
 
@@ -1129,8 +1183,8 @@
     <div class="container split-section">
       <div class="split-section__intro">
         <span class="section-label">Brokers &amp; Shippers</span>
-        <h2 class="section-title">FOR BROKERS &amp; SHIPPERS</h2>
-        <p class="section-subtitle">We handle last-minute loads so you do not lose them.</p>
+        <h2 class="section-title">BUILT FOR BROKERS &amp; SHIPPERS</h2>
+        <p class="section-subtitle">Flexible transportation capacity for urgent freight, scheduled shipments, recurring lanes, and full truckload opportunities.</p>
 
         <p class="broker-dispatch-note">
           <strong>Call or text dispatch for fastest response.</strong>
@@ -1144,7 +1198,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
             </svg>
           </div>
-          <div><div class="authority-item__text">Immediate availability for last-minute loads</div></div>
+          <div><div class="authority-item__text">Responsive dispatch communication</div></div>
         </div>
 
         <div class="authority-item">
@@ -1153,7 +1207,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
             </svg>
           </div>
-          <div><div class="authority-item__text">Fast response — minutes, not hours</div></div>
+          <div><div class="authority-item__text">Cargo van through tractor-trailer capacity</div></div>
         </div>
 
         <div class="authority-item">
@@ -1162,7 +1216,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
             </svg>
           </div>
-          <div><div class="authority-item__text">Direct communication with dispatch</div></div>
+          <div><div class="authority-item__text">Expedited and scheduled transportation</div></div>
         </div>
 
         <div class="authority-item">
@@ -1171,7 +1225,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
             </svg>
           </div>
-          <div><div class="authority-item__text">No missed pickups</div></div>
+          <div><div class="authority-item__text">Professional pickup, delivery, and POD communication</div></div>
         </div>
 
         <div class="authority-item">
@@ -1180,7 +1234,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
             </svg>
           </div>
-          <div><div class="authority-item__text">No unnecessary delays</div></div>
+          <div><div class="authority-item__text">Local, regional, and dedicated transportation opportunities</div></div>
         </div>
       </div>
     </div>
@@ -1196,14 +1250,14 @@
         <picture>
           <source
             type="image/webp"
-            srcset="assets/images/pubba-service-area-480.webp 480w, assets/images/pubba-service-area-768.webp 768w, assets/images/pubba-service-area-1024.webp 1024w"
+            srcset="assets/images/pubba-service-area-fleet-final-640.webp 640w, assets/images/pubba-service-area-fleet-final-1280.webp 1280w, assets/images/pubba-service-area-fleet-final-1774.webp 1774w"
             sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1023px) 720px, 780px"
           >
           <img
-            src="van_truck_mountains.png"
-            alt="Pubba Logistics van and truck driving in mountains"
-            width="1024"
-            height="1024"
+            src="assets/images/pubba-service-area-fleet-final.png"
+            alt="PUBBA Logistics cargo van, Freightliner M2 106-style 26FT box truck, and tractor-trailer fleet serving regional lanes"
+            width="1774"
+            height="887"
             loading="lazy"
             decoding="async"
           >
@@ -1232,7 +1286,7 @@
         <div class="step">
           <div class="step__number">01</div>
           <h3 class="step__title">Send Load Details</h3>
-          <p class="step__desc">Call, text, or fill out a quote form with your pickup, delivery, and timeline.</p>
+          <p class="step__desc">Share pickup, delivery, date and time, dimensions, weight, pallet count, and equipment needs.</p>
         </div>
 
         <div class="step">
@@ -1314,6 +1368,26 @@
               </select>
             </div>
 
+            <div class="form-group">
+              <label class="form-label" for="equipment-needed">Equipment Needed</label>
+              <select class="form-select" id="equipment-needed" name="equipment">
+                <option value="Not Sure" selected>Not Sure</option>
+                <option value="Cargo Van">Cargo Van</option>
+                <option value="26FT Box Truck">26FT Box Truck</option>
+                <option value="Tractor-Trailer">Tractor-Trailer</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="weight">Freight Weight</label>
+              <input class="form-input" type="text" id="weight" name="weight" placeholder="Approximate weight (optional)">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="pallets">Pallet Count</label>
+              <input class="form-input" type="number" min="0" id="pallets" name="pallets" placeholder="Pallets (optional)">
+            </div>
+
             <div class="form-group form-group--full">
               <label class="form-label" for="description">Load Description *</label>
               <textarea
@@ -1327,12 +1401,13 @@
           </div>
 
           <div class="form-submit">
-            <button type="submit" class="btn btn--mint">
+            <button type="submit" class="btn btn--mint" data-submit-button>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
               </svg>
-              Request Quote
+              <span data-submit-label>Request a Freight Quote</span>
             </button>
+          <p class="form-status" role="alert" aria-live="polite" tabindex="-1" data-form-status></p>
           </div>
         </form>
       </div>
@@ -1341,8 +1416,8 @@
 
   <section class="final-cta">
     <div class="container">
-        <h2 class="final-cta__headline">NEED A DRIVER<br>NOW?</h2>
-      <p class="final-cta__sub">We are ready. Contact dispatch and get moving.</p>
+        <h2 class="final-cta__headline">NEED CAPACITY<br>NOW?</h2>
+      <p class="final-cta__sub">Send your load details to PUBBA Logistics and get a fast response from dispatch.</p>
 
       <div class="btn-group">
         <a href="tel:+13039002247" class="btn btn--mint">
@@ -1374,6 +1449,8 @@
 
   <footer class="footer">
     <div class="container">
+      <p class="footer__equipment">Cargo Vans • 26FT Box Trucks • Tractor-Trailers</p>
+      <p class="footer__standard">ONE BRAND. MULTIPLE VEHICLES. ONE STANDARD.</p>
       <div class="footer__social">
         <a href="https://www.instagram.com/pubbalogistics/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2m0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7m5.25-2.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>
@@ -1415,30 +1492,64 @@
       });
     });
 
-    document.querySelector('form[name="quote"]').addEventListener("submit", function (e) {
+    var quoteForm = document.querySelector('form[name="quote"]');
+    var quoteSubmitting = false;
+
+    function normalizeEquipment(value) {
+      var equipmentMap = {
+        "Cargo Van": "cargo_van",
+        "26FT Box Truck": "box_truck_26ft",
+        "Tractor-Trailer": "tractor_trailer",
+        "Not Sure": "not_sure"
+      };
+      return equipmentMap[value] || "not_sure";
+    }
+
+    quoteForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
       var form = e.target;
+      if (quoteSubmitting) return;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
       var data = new FormData(form);
+      var submitButton = form.querySelector("[data-submit-button]");
+      var submitLabel = form.querySelector("[data-submit-label]");
+      var statusMessage = form.querySelector("[data-form-status]");
+      var equipmentType = normalizeEquipment(data.get("equipment"));
+
+      quoteSubmitting = true;
+      submitButton.disabled = true;
+      submitButton.setAttribute("aria-busy", "true");
+      submitLabel.textContent = "Sending Quote Request...";
+      statusMessage.textContent = "";
 
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(data).toString()
       })
-        .then(function () {
-          form.innerHTML =
-            '<div style="text-align:center;padding:48px 0;">' +
-            '<h3 style="font-family:Bebas Neue,sans-serif;font-size:40px;line-height:1;margin-bottom:12px;color:#44FFBB;">QUOTE REQUESTED</h3>' +
-            '<p style="color:#aaaaaa;font-size:16px;max-width:520px;margin:0 auto 24px;">We received your request. We will get back to you within minutes. For fastest service, call or text dispatch now.</p>' +
-            '<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">' +
-            '<a href="tel:+13039002247" class="btn btn--mint" style="display:inline-flex;">Call Dispatch Now</a>' +
-            '<a href="sms:+13039002247" class="btn btn--outline" style="display:inline-flex;">Text Dispatch</a>' +
-            "</div>" +
-            "</div>";
+        .then(function (response) {
+          if (!response.ok) throw new Error("Submission was not accepted");
+
+          var conversionState = {
+            token: window.crypto && crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+            equipmentType: equipmentType,
+            eventSent: false
+          };
+          try { sessionStorage.setItem("pubba_quote_confirmation", JSON.stringify(conversionState)); } catch (error) {}
+          window.location.assign("/quote-confirmation/");
         })
         .catch(function () {
-          alert("Something went wrong. Please call dispatch directly.");
+          quoteSubmitting = false;
+          submitButton.disabled = false;
+          submitButton.removeAttribute("aria-busy");
+          submitLabel.textContent = "Request a Freight Quote";
+          statusMessage.textContent = "We could not submit your request. Your information is still here—please check your connection and try again, or call dispatch at 303-900-2247.";
+          statusMessage.focus();
         });
     });
   </script>
