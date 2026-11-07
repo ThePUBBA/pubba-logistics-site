@@ -1329,13 +1329,13 @@
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="company">Company Name</label>
-              <input class="form-input" type="text" id="company" name="company" placeholder="Company (optional)">
+              <label class="form-label" for="company">Company Name *</label>
+              <input class="form-input" type="text" id="company" name="company" placeholder="Enter company name" required>
             </div>
 
             <div class="form-group">
               <label class="form-label" for="phone">Phone Number *</label>
-              <input class="form-input" type="tel" id="phone" name="phone" placeholder="(000) 000-0000" required>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="(000) 000-0000" inputmode="tel" autocomplete="tel" required>
             </div>
 
             <div class="form-group">
@@ -1494,6 +1494,83 @@
 
     var quoteForm = document.querySelector('form[name="quote"]');
     var quoteSubmitting = false;
+    var companyInput = quoteForm.elements.company;
+    var phoneInput = quoteForm.elements.phone;
+
+    function getPhoneDigits(value) {
+      var digits = String(value || "").replace(/\D/g, "");
+      if (digits.length > 1 && digits.charAt(0) === "1") digits = digits.slice(1);
+      return digits.slice(0, 10);
+    }
+
+    function formatPhoneDigits(digits) {
+      if (!digits) return "";
+      if (digits.length < 4) return "(" + digits;
+      if (digits.length < 7) return "(" + digits.slice(0, 3) + ") " + digits.slice(3);
+      return "(" + digits.slice(0, 3) + ") " + digits.slice(3, 6) + "-" + digits.slice(6);
+    }
+
+    function caretAfterDigits(value, digitCount) {
+      if (digitCount <= 0) return 0;
+      var seen = 0;
+      for (var i = 0; i < value.length; i += 1) {
+        if (/\d/.test(value.charAt(i))) {
+          seen += 1;
+          if (seen === digitCount) return i + 1;
+        }
+      }
+      return value.length;
+    }
+
+    function validatePhone() {
+      var digitCount = getPhoneDigits(phoneInput.value).length;
+      phoneInput.setCustomValidity(
+        digitCount > 0 && digitCount !== 10
+          ? "Enter a complete 10-digit U.S. phone number."
+          : ""
+      );
+      return digitCount === 10;
+    }
+
+    function applyPhoneFormat(value, caretPosition) {
+      var textBeforeCaret = String(value || "").slice(0, caretPosition);
+      var digitsBeforeCaret = (textBeforeCaret.match(/\d/g) || []).length;
+      var allDigits = String(value || "").replace(/\D/g, "");
+      var hasCountryCode = allDigits.length > 1 && allDigits.charAt(0) === "1";
+      var digits = getPhoneDigits(value);
+
+      if (hasCountryCode && digitsBeforeCaret > 0) digitsBeforeCaret -= 1;
+      digitsBeforeCaret = Math.max(0, Math.min(digitsBeforeCaret, digits.length));
+
+      var formatted = formatPhoneDigits(digits);
+      phoneInput.value = formatted;
+      var nextCaret = caretAfterDigits(formatted, digitsBeforeCaret);
+      phoneInput.setSelectionRange(nextCaret, nextCaret);
+      validatePhone();
+    }
+
+    companyInput.addEventListener("input", function () {
+      companyInput.setCustomValidity(companyInput.value.trim() ? "" : "Enter your company name.");
+    });
+
+    phoneInput.addEventListener("input", function () {
+      applyPhoneFormat(phoneInput.value, phoneInput.selectionStart || phoneInput.value.length);
+    });
+
+    phoneInput.addEventListener("keydown", function (event) {
+      if (event.key !== "Backspace" || phoneInput.selectionStart !== phoneInput.selectionEnd || phoneInput.selectionStart === 0) return;
+
+      var caret = phoneInput.selectionStart;
+      if (/\d/.test(phoneInput.value.charAt(caret - 1))) return;
+
+      var digitPosition = caret - 1;
+      while (digitPosition >= 0 && !/\d/.test(phoneInput.value.charAt(digitPosition))) digitPosition -= 1;
+      if (digitPosition < 0) return;
+
+      event.preventDefault();
+      var editedValue = phoneInput.value.slice(0, digitPosition) + phoneInput.value.slice(digitPosition + 1);
+      applyPhoneFormat(editedValue, digitPosition);
+    });
 
     function normalizeEquipment(value) {
       var equipmentMap = {
@@ -1510,6 +1587,12 @@
 
       var form = e.target;
       if (quoteSubmitting) return;
+
+      companyInput.value = companyInput.value.trim();
+      companyInput.setCustomValidity(companyInput.value ? "" : "Enter your company name.");
+      applyPhoneFormat(phoneInput.value, phoneInput.value.length);
+      validatePhone();
+
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
